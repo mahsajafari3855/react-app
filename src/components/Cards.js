@@ -9,14 +9,23 @@ import iphone12 from "../images/iphone12.jpg";
 import s21 from "../images/s21.jpg";
 
 class Cards extends Component {
+    constructor(){
+        super();
+        this.state={
+            phoneData:[
+                {image:iphonex, name:"Iphone X", cost:"500 $"},
+                {image:iphone11, name:"Iphone 11" ,cost:"600 $"},
+                {image:iphone12, name:"Iphone 12", cost:"800 $"},
+                {image:s21 ,name:"S21 Ultra", cost:"790 $"}
+            ]
+
+        }
+    }
     render() {
         return (
             <div className={styles.container}>
-                <Card image={iphonex} name="Iphone X" cost="500 $" />
-                <Card image={iphone11} name="Iphone 11" cost="600 $" />
-                <Card image={iphone12} name="Iphone 12" cost="800 $" />
-                <Card image={s21} name="S21 Ultra" cost="790 $" />
-            </div>
+               {this.state.phoneData.map(phone=><Card image={phone.image} name={phone.name} cost={phone.cost} />)} 
+           </div>
         );
     }
 }
